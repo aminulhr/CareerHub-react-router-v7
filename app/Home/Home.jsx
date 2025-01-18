@@ -1,15 +1,9 @@
-import React from "react";
-import { Outlet } from "react-router";
-import Footer from "./../Footer/Footer";
-
-const App = () => {
+const Home = () => {
   return (
     <div>
-      <h1>Welcome </h1>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <h1>Home Page</h1>
     </div>
   );
 };
 
-export default App;
+export default Home;

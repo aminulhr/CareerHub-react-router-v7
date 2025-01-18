@@ -1,6 +1,11 @@
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
-  index("./Home/Home.jsx"),
-  route("footer", "./Footer/Footer.tsx"),
+  route("/", "./App.jsx", [
+    index("./Home/Home.jsx"),
+    route("applied", "./AppliedJob.jsx"),
+    route("Statistics", "./Statistics.jsx"),
+    route("blogs", "./Blogs.jsx"),
+    route("jobs", "./ErrorPage.jsx"),
+  ]),
 ] satisfies RouteConfig;
