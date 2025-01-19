@@ -7,5 +7,6 @@ export default [
     route("Statistics", "./Statistics.jsx"),
     route("blogs", "./Blogs.jsx"),
     route("jobs", "./ErrorPage.jsx"),
+    route("job/:id", "./Home/JobDetails.jsx"),
   ]),
 ] satisfies RouteConfig;
