@@ -1,13 +1,32 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useLoaderData, useParams } from "react-router";
+
+export async function jobDetailsLoader() {
+  const response = await fetch("/jobs.json");
+  if (!response.ok) {
+    throw new Error("Failed to load job data");
+  }
+  return response.json();
+}
 
 const JobDetails = () => {
+  const jobs = useLoaderData();
   const { id } = useParams();
-  const [job, setJob] = useState(null);
+
+  const job = jobs.find((job) => job.id === id);
+
+  if (!job) {
+    return <div>Job not found</div>;
+  }
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold">Job Details</h1>
+    <div>
+      <h2>Job Details</h2>
+      <p>
+        <strong>Title:</strong> {job.title}
+      </p>
+      <p>
+        <strong>Company:</strong> {job.company}
+      </p>
     </div>
   );
 };
